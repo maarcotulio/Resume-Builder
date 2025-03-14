@@ -3,7 +3,7 @@
 import { PromptProps } from "@/types/Prompt";
 import { useState } from "react";
 
-export function TextArea({
+export function GenerateData({
   handleGenerate,
 }: {
   handleGenerate({

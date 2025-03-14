@@ -2,13 +2,15 @@
 
 import { LoaderCircle } from "lucide-react";
 import { trpc } from "../_trpc/client";
-import { TextArea } from "./components/TextArea";
+import { GenerateData } from "./components/GenerateData";
 import { useRef, useState } from "react";
 import ReactMarkdown from "react-markdown";
 import { PromptProps } from "@/types/Prompt";
+import remarkGfm from "remark-gfm";
+import "./style.css";
 
 export default function Home() {
-  const [response, setResponse] = useState();
+  const [response, setResponse] = useState("");
   const { mutateAsync, isLoading } = trpc.chat.useMutation();
 
   const contentRef = useRef("");
@@ -43,27 +45,31 @@ export default function Home() {
     setResponse(response.choices[0].message.content);
   };
 
+  const hasResponse = !!response;
+
   return (
     <>
-      {!isLoading && (
+      {!isLoading && !hasResponse && (
         <div className="w-1/2 my-4">
-          <TextArea handleGenerate={handleGenerate} />
+          <GenerateData handleGenerate={handleGenerate} />
         </div>
       )}
-      {isLoading && <LoaderCircle className="animate-spin" size={48} />}
+      {isLoading && !hasResponse && (
+        <LoaderCircle className="animate-spin" size={48} />
+      )}
 
-      {!!response && isLoading && (
-        <div className="flex justify-center flex-col items-center w-1/2 gap-2 my-8">
-          <h1 className="text-2xl font-bold">Resume</h1>
-          <div>
-            <ReactMarkdown>{response}</ReactMarkdown>
+      {hasResponse && !isLoading && (
+        <div className="flex items-center w-full h-full justify-center p-4 gap-4">
+          <textarea
+            value={response}
+            onChange={(e) => setResponse(e.target.value)}
+            className="w-full h-full border p-2 rounded-lg bg-transparent scroll-smooth "
+          />
+          <div className="p-4 border w-full h-full markdown-body rounded-lg">
+            <ReactMarkdown remarkPlugins={[remarkGfm]}>
+              {response}
+            </ReactMarkdown>
           </div>
-          <button
-            onClick={handleDownloadPdf}
-            className="mt-4 px-4 py-2 bg-blue-500 text-white rounded"
-          >
-            Download PDF
-          </button>
         </div>
       )}
     </>
