@@ -4,7 +4,7 @@
   font-family: "Inter", sans-serif;
   font-size: 15px;
   line-height: 1.6;
-  color: white;
+  color: black;
   word-wrap: break-word;
 }
 
@@ -88,7 +88,7 @@
 /* Horizontal Rule */
 .markdown-body hr {
   border: none;
-  border-top: 1px solid #eaeaea;
+  border-top: 1px solid gray;
   margin: 1.5em 0;
 }
 
