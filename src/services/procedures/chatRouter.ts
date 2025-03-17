@@ -15,7 +15,7 @@ export const chatRouter = publicProcedure
         {
           model: "Llama 3 8B Instruct",
           messages: [{ role: "user", content: input.prompt }],
-          max_tokens: 50,
+          max_tokens: 8192,
           temperature: 0.28,
         },
         {
