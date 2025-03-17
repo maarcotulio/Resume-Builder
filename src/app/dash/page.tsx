@@ -8,7 +8,6 @@ import ReactMarkdown from "react-markdown";
 import { PromptProps } from "@/types/Prompt";
 import remarkGfm from "remark-gfm";
 import "./style.css";
-import html2pdf from "html2pdf.js";
 
 export default function Home() {
   const [response, setResponse] = useState(`**Jacob**
@@ -49,8 +48,9 @@ Note: This is just a sample resume, please make sure to customize it according t
 
   const contentRef = useRef<HTMLDivElement>(null);
 
-  const handleDownloadPDF = () => {
+  const handleDownloadPDF = async () => {
     if (contentRef.current) {
+      const html2pdf = (await import("html2pdf.js")).default;
       const element = contentRef.current;
 
       const options = {
@@ -92,8 +92,8 @@ Note: This is just a sample resume, please make sure to customize it according t
       )}
 
       {hasResponse && !isLoading && (
-        <div className="relative mb-8">
-          <div className="flex items-center w-full h-full justify-center p-4 gap-4">
+        <div className="relative">
+          <div className="flex items-center w-full h-full justify-center p-4 gap-4 overflow-hidden">
             <textarea
               value={response}
               onChange={(e) => setResponse(e.target.value)}

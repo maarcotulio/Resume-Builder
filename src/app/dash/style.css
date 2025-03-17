@@ -1,4 +1,5 @@
 @import url("https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Roboto+Condensed:ital,wght@0,100..900;1,100..900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Fira+Code:wght@300..700&display=swap");
 
 .markdown-body {
   font-family: "Inter", sans-serif;
@@ -37,6 +38,7 @@
   padding-left: 1em;
 }
 .markdown-body li {
+  list-style: inside;
   margin: 0.2em 0;
 }
 
@@ -46,9 +48,9 @@
   color: #c7254e;
   padding: 0.15em 0.3em;
   border-radius: 4px;
-  font-family: "Fira Code", "Consolas", monospace;
+  font-family: "Fira Code", monospace;
   font-size: 0.95em;
-  white-space: pre-wrap; /* Wrap inline code if needed */
+  white-space: pre-wrap;
 }
 
 /* Code Block */
@@ -57,9 +59,9 @@
   padding: 0.8em;
   border-radius: 6px;
   margin: 0.8em 0;
-  white-space: pre; /* Preserve formatting */
+  white-space: pre;
   overflow: auto;
-  font-family: "Fira Code", "Consolas", monospace;
+  font-family: "Fira Code", monospace;
   font-size: 0.9em;
   color: #333;
   box-shadow: inset 0 0 0 1px #eaeaea;
