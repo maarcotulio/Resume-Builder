@@ -37,8 +37,8 @@ export default function Signup() {
   return (
     <div className="flex flex-col w-full h-full justify-center space-y-4">
       <div>
-        <h1 className="text-left font-bold text-2xl">Signup</h1>
-        <Link href="/auth/signin" className="text-md underline">
+        <h1 className="text-left font-bold text-2xl">Register</h1>
+        <Link href="/auth/login" className="text-md underline">
           To login in the account.
         </Link>
       </div>

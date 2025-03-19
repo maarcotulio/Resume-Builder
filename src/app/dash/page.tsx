@@ -9,41 +9,43 @@ import { PromptProps } from "@/types/Prompt";
 import remarkGfm from "remark-gfm";
 import "./style.css";
 
+// **Jacob**
+// **Software Engineer**
+
+// **Summary:**
+// Highly motivated and detail-oriented software engineer with 2 years of experience in developing scalable and efficient applications using Next.js and Nest.js. Proficient in designing and implementing robust backend systems, as well as crafting intuitive frontend interfaces. Strong passion for staying up-to-date with the latest technologies and best practices.
+
+// **Experience:**
+
+// * **Software Engineer**, XYZ Corporation (2020-Present)
+// 	+ Designed and developed multiple web applications using Next.js and Nest.js
+// 	+ Collaborated with cross-functional teams to deliver high-quality products on time
+// 	+ Implemented unit testing, integration testing, and debugging techniques to ensure code quality
+// 	+ Participated in code reviews and contributed to the improvement of team processes
+// * **Junior Software Engineer**, ABC Startups (2019-2020)
+// 	+ Assisted in the development of a real-time analytics dashboard using Nest.js
+// 	+ Worked on bug fixing, testing, and debugging tasks for multiple projects
+// 	+ Gained experience with Agile methodologies and version control systems
+
+// **Skills:**
+
+// * Programming languages: JavaScript (ES6+), TypeScript
+// * Frameworks: Next.js, Nest.js
+// * Databases: MongoDB, PostgreSQL
+// * Operating Systems: Windows, macOS, Linux
+// * Version Control Systems: Git, SVN
+// * Testing frameworks: Jest, Mocha
+// * Agile methodologies: Scrum, Kanban
+
+// **Education:**
+
+// * **Bachelor of Science in Computer Science**, [University Name] (2019)
+// 	+ Coursework included data structures, algorithms, computer networks, and software engineering principles
+
+// Note: This is just a sample resume, please make sure to customize it according to your own experiences and qualifications. Also, proofread multiple times for any grammar or formatting errors before submitting it.
+
 export default function Home() {
-  const [response, setResponse] = useState(`**Jacob**
-**Software Engineer**
-
-**Summary:**
-Highly motivated and detail-oriented software engineer with 2 years of experience in developing scalable and efficient applications using Next.js and Nest.js. Proficient in designing and implementing robust backend systems, as well as crafting intuitive frontend interfaces. Strong passion for staying up-to-date with the latest technologies and best practices.
-
-**Experience:**
-
-* **Software Engineer**, XYZ Corporation (2020-Present)
-	+ Designed and developed multiple web applications using Next.js and Nest.js
-	+ Collaborated with cross-functional teams to deliver high-quality products on time
-	+ Implemented unit testing, integration testing, and debugging techniques to ensure code quality
-	+ Participated in code reviews and contributed to the improvement of team processes
-* **Junior Software Engineer**, ABC Startups (2019-2020)
-	+ Assisted in the development of a real-time analytics dashboard using Nest.js
-	+ Worked on bug fixing, testing, and debugging tasks for multiple projects
-	+ Gained experience with Agile methodologies and version control systems
-
-**Skills:**
-
-* Programming languages: JavaScript (ES6+), TypeScript
-* Frameworks: Next.js, Nest.js
-* Databases: MongoDB, PostgreSQL
-* Operating Systems: Windows, macOS, Linux
-* Version Control Systems: Git, SVN
-* Testing frameworks: Jest, Mocha
-* Agile methodologies: Scrum, Kanban
-
-**Education:**
-
-* **Bachelor of Science in Computer Science**, [University Name] (2019)
-	+ Coursework included data structures, algorithms, computer networks, and software engineering principles
-
-Note: This is just a sample resume, please make sure to customize it according to your own experiences and qualifications. Also, proofread multiple times for any grammar or formatting errors before submitting it.`);
+  const [response, setResponse] = useState("");
   const { mutateAsync, isLoading } = trpc.chat.useMutation();
 
   const contentRef = useRef<HTMLDivElement>(null);
@@ -93,14 +95,14 @@ Note: This is just a sample resume, please make sure to customize it according t
 
       {hasResponse && !isLoading && (
         <div className="relative">
-          <div className="flex items-center w-full h-full justify-center p-4 gap-4 overflow-hidden">
+          <div className="flex flex-col sm:flex-row items-center w-full h-full justify-center p-4 gap-4 overflow-hidden">
             <textarea
               value={response}
               onChange={(e) => setResponse(e.target.value)}
-              className="w-full h-full border p-2 rounded-lg bg-transparent scroll-smooth "
+              className="w-full sm:h-full h-screen border border-gray-400 p-4 bg-transparent scroll-smooth resize-none"
             />
             <div
-              className="p-4 w-full h-full bg-white rounded-lg markdown-body"
+              className="p-4 w-full h-full bg-white markdown-body drop-shadow-xl"
               ref={contentRef}
             >
               <ReactMarkdown remarkPlugins={[remarkGfm]}>
@@ -110,7 +112,7 @@ Note: This is just a sample resume, please make sure to customize it according t
           </div>
           <button
             onClick={handleDownloadPDF}
-            className="px-4 py-2 bg-blue-600 text-white rounded-md hover:bg-blue-700 absolute right-4"
+            className="px-4 py-2 bg-brandMidBlue text-white rounded-md hover:bg-brandDarkBlue absolute right-4 transition-all"
           >
             Download as PDF
           </button>

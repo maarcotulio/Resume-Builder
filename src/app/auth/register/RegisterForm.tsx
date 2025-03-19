@@ -53,7 +53,7 @@ export default function RegisterForm({ registerAction }: RegisterFormProps) {
       />
 
       <button
-        className="border-2 border-white p-2 rounded-md flex items-center justify-center"
+        className="bg-brandMidBlue hover:bg-brandLightBlue hover:text-black text-white transition-all p-2 rounded-md flex items-center justify-center"
         disabled={isPending}
       >
         {isPending ? <LoaderCircle className="animate-spin" /> : "Criar Conta"}

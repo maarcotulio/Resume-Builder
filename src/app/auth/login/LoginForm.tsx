@@ -45,7 +45,7 @@ export default function LoginForm({ loginAction }: LoginFormProps) {
       />
 
       <button
-        className="border-2 border-white p-2 rounded-md flex items-center justify-center"
+        className="bg-brandMidBlue hover:bg-brandLightBlue hover:text-black text-white transition-all p-2 rounded-md flex items-center justify-center"
         disabled={isPending}
       >
         {isPending ? (

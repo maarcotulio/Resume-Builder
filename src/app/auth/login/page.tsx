@@ -42,10 +42,10 @@ export default function SignIn() {
   }
 
   return (
-    <div className="flex flex-col w-full h-full justify-center space-y-4">
+    <div className="flex flex-col w-full h-full justify-center space-y-4 ">
       <div>
-        <h1 className="text-left font-bold text-2xl">Signin</h1>
-        <Link href="/auth/signup" className="text-md underline">
+        <h1 className="text-left font-bold text-2xl">Login</h1>
+        <Link href="/auth/register" className="text-md underline">
           To create an account.
         </Link>
       </div>

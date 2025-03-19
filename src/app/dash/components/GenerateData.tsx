@@ -1,5 +1,6 @@
 "use client";
 
+import { Input } from "@/app/_components/Input";
 import { PromptProps } from "@/types/Prompt";
 import { useState } from "react";
 
@@ -22,38 +23,35 @@ export function GenerateData({
     <>
       <div className="w-full">
         <div className="grid grid-cols-3 gap-4">
-          <input
+          <Input
             type="text"
             placeholder="Name"
             value={name}
-            className="bg-transparent p-2 border-white border-2 rounded-md "
-            onChange={(e) => setName(e.target.value)}
+            handleChange={(e) => setName(e.target.value)}
           />
-          <input
+          <Input
             type="text"
             placeholder="Job"
             value={job}
-            className="bg-transparent p-2 border-white border-2 rounded-md"
-            onChange={(e) => setJobType(e.target.value)}
+            handleChange={(e) => setJobType(e.target.value)}
           />
-          <input
+          <Input
             type="number"
             value={experienceYears}
             placeholder="Years of experience"
-            className="bg-transparent p-2 border-white border-2 rounded-md"
-            onChange={(e) => setExperienceYears(Number(e.target.value))}
+            handleChange={(e) => setExperienceYears(Number(e.target.value))}
             min={0}
           />
         </div>
         <textarea
           value={skills}
           onChange={(e) => setSkills(e.target.value)}
-          className="w-full bg-transparent h-auto border-2 border-white p-4 rounded-lg my-4"
+          className="w-full bg-gray-200 border-gray-200 rounded-md border-2 h-auto p-4 my-4"
           placeholder="Write here your skills"
         />
         <div className="flex justify-end items-center">
           <button
-            className="p-2 rounded-md bg-zinc-500 hover:bg-zinc-600 "
+            className="py-2 px-4 rounded-md bg-brandMidBlue hover:bg-brandDarkBlue text-white"
             onClick={() =>
               handleGenerate({ name, job, skills, experienceYears })
             }
