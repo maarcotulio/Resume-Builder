@@ -12,10 +12,10 @@ export default auth((request) => {
   }
 
   if (!isLogged && !isPublicPath) {
-    return NextResponse.redirect(new URL("/auth/signin", request.nextUrl));
+    return NextResponse.redirect(new URL("/auth/login", request.nextUrl));
   }
 });
 
 export const config = {
-  matcher: ["/dash", "/dash/:path", "/auth/signin", "/auth/signup"],
+  matcher: ["/auth/login", "/auth/register", "/dash"],
 };
