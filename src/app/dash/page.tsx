@@ -8,41 +8,7 @@ import ReactMarkdown from "react-markdown";
 import { PromptProps } from "@/types/Prompt";
 import remarkGfm from "remark-gfm";
 import "./style.css";
-
-// **Jacob**
-// **Software Engineer**
-
-// **Summary:**
-// Highly motivated and detail-oriented software engineer with 2 years of experience in developing scalable and efficient applications using Next.js and Nest.js. Proficient in designing and implementing robust backend systems, as well as crafting intuitive frontend interfaces. Strong passion for staying up-to-date with the latest technologies and best practices.
-
-// **Experience:**
-
-// * **Software Engineer**, XYZ Corporation (2020-Present)
-// 	+ Designed and developed multiple web applications using Next.js and Nest.js
-// 	+ Collaborated with cross-functional teams to deliver high-quality products on time
-// 	+ Implemented unit testing, integration testing, and debugging techniques to ensure code quality
-// 	+ Participated in code reviews and contributed to the improvement of team processes
-// * **Junior Software Engineer**, ABC Startups (2019-2020)
-// 	+ Assisted in the development of a real-time analytics dashboard using Nest.js
-// 	+ Worked on bug fixing, testing, and debugging tasks for multiple projects
-// 	+ Gained experience with Agile methodologies and version control systems
-
-// **Skills:**
-
-// * Programming languages: JavaScript (ES6+), TypeScript
-// * Frameworks: Next.js, Nest.js
-// * Databases: MongoDB, PostgreSQL
-// * Operating Systems: Windows, macOS, Linux
-// * Version Control Systems: Git, SVN
-// * Testing frameworks: Jest, Mocha
-// * Agile methodologies: Scrum, Kanban
-
-// **Education:**
-
-// * **Bachelor of Science in Computer Science**, [University Name] (2019)
-// 	+ Coursework included data structures, algorithms, computer networks, and software engineering principles
-
-// Note: This is just a sample resume, please make sure to customize it according to your own experiences and qualifications. Also, proofread multiple times for any grammar or formatting errors before submitting it.
+import toast from "react-hot-toast";
 
 export default function Home() {
   const [response, setResponse] = useState("");
@@ -73,11 +39,15 @@ export default function Home() {
     skills,
     experienceYears,
   }: PromptProps) => {
-    const response = await mutateAsync({
-      prompt: `Generate a professional resume for a ${job} named ${name}.  The person has ${experienceYears} years of experience. Skills include ${skills}. Use a formal tone. Include a summary, experience, skills, and education sections.`,
-    });
+    try {
+      const response = await mutateAsync({
+        prompt: `Generate a professional resume for a ${job} named ${name}.  The person has ${experienceYears} years of experience. Skills include ${skills}. Use a formal tone. Include a summary, experience, skills, and education sections.`,
+      });
 
-    setResponse(response.choices[0].message.content);
+      setResponse(response.choices[0].message.content);
+    } catch {
+      toast.error("Failed to connect to the AI");
+    }
   };
 
   const hasResponse = !!response;
