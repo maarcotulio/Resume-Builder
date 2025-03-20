@@ -1,36 +1,53 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Resume Builder
 
-## Getting Started
+The project uses AI to build resumes more faster and good quality.
 
-First, run the development server:
+## Run Locally
+
+Clone the project
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+  git clone https://github.com/maarcotulio/Resume-Builder.git
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Go to the project directory
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+```bash
+  cd Resume-Builder
+```
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+Install dependencies the dependencies.
 
-## Learn More
+```bash
+  npm i
+  pnpm install
+```
 
-To learn more about Next.js, take a look at the following resources:
+```bash
+  docker compose up
+```
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+Set the variables in .env
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+```env
+  DATABASE_URL="postgresql://johndoe:randompassword@localhost:5432/mydb?schema=public"
+  AUTH_SECRET=""
+```
 
-## Deploy on Vercel
+Download the [GPT4All](https://www.nomic.ai/gpt4all), go to Settings, Application and check if the "API Server Port" is in 4891. After that you can run the project with
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+```bash
+  npm run dev
+  pnpm dev
+```
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+## Built With
+
+- Prisma
+- Nest.js
+- PostgreSQL
+- Auth.js
+- tRPC
+- GPT4All
+- Tailwind CSS
+- TypeScript

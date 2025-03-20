@@ -1,0 +1,16 @@
+version: "3.8"
+
+services:
+  mongodb:
+    image: postgres:latest
+    container_name: pg
+    ports:
+      - "5432:5432"
+    volumes:
+      - ./data/db:/data/db
+    networks:
+      - app-network
+
+networks:
+  app-network:
+    driver: bridge
