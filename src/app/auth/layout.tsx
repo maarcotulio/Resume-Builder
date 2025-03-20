@@ -1,3 +1,6 @@
+import resumeImg from "@/assets/images/resume.png";
+import Image from "next/image";
+
 export default function AuthLayout({
   children,
 }: {
@@ -11,7 +14,13 @@ export default function AuthLayout({
         </div>
       </div>
 
-      <div className="bg-brandMidBlue w-1/2 h-full lg:flex justify-center items-center rotate-3 scale-110 hidden"></div>
+      <div className="bg-brandMidBlue w-1/2 h-full lg:flex justify-center items-center rotate-3 scale-110 hidden overflow-hidden">
+        <Image
+          src={resumeImg}
+          alt="Ilustrative resume"
+          className="-rotate-3 w-full rounded-lg scale-x-105 drop-shadow-xl"
+        />
+      </div>
     </div>
   );
 }
