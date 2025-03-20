@@ -14,12 +14,18 @@ export default function AuthLayout({
         </div>
       </div>
 
-      <div className="bg-brandMidBlue w-1/2 h-full lg:flex justify-center items-center rotate-3 scale-110 hidden overflow-hidden">
+      <div className="bg-brandMidBlue w-1/2 h-full lg:flex justify-center items-center rotate-3 scale-110 hidden overflow-hidden flex-col">
         <Image
           src={resumeImg}
           alt="Ilustrative resume"
           className="-rotate-3 w-full rounded-lg scale-x-105 drop-shadow-xl"
         />
+        <h1 className="-rotate-3 text-white text-sm">
+          Designed by{" "}
+          <a href="www.freepik.com" className="text-blue-400 underline">
+            Freepik
+          </a>
+        </h1>
       </div>
     </div>
   );
